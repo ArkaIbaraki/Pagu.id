@@ -7,8 +7,8 @@
     <meta name="description"
         content="Tool gratis untuk membuat invoice dan RAB versi Indonesia. Tanpa login, langsung pakai!">
     <meta name="keywords" content="invoice, RAB, Indonesia, gratis, online, maker">
-    <meta name="author" content="Invoice & RAB Maker">
-    <title>Invoice & RAB Maker - Indonesia</title>
+    <meta name="author" content="Pagu.id">
+    <title>Pagu.id - Invoice & RAB Maker Indonesia</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
@@ -20,7 +20,7 @@
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
                     <a href="/" class="text-xl font-bold text-gray-900">
-                        📄 Invoice & RAB Maker
+                        📄 Pagu.id
                     </a>
                 </div>
                 <div class="hidden md:flex space-x-4">

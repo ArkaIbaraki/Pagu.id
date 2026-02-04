@@ -16,8 +16,8 @@ Terima kasih sudah tertarik untuk berkontribusi! Project ini dibuat untuk komuni
 ```bash
 # Fork repository di GitHub
 # Clone ke local
-git clone https://github.com/YOUR_USERNAME/invoice-rab-maker.git
-cd invoice-rab-maker
+git clone https://github.com/YOUR_USERNAME/pagu.id.git
+cd pagu.id
 ```
 
 ### 2. Setup Development

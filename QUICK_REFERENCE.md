@@ -1,6 +1,6 @@
 # 📋 Quick Reference
 
-Cheat sheet untuk development Invoice & RAB Maker.
+Cheat sheet untuk development Pagu.id - Invoice & RAB Maker.
 
 ## 🚀 Common Commands
 

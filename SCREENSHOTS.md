@@ -1,6 +1,6 @@
 # 📸 Screenshots & Features
 
-Dokumentasi visual dari Invoice & RAB Maker dengan penjelasan fitur-fiturnya.
+Dokumentasi visual dari Pagu.id - Invoice & RAB Maker dengan penjelasan fitur-fiturnya.
 
 ---
 
@@ -10,7 +10,7 @@ Dokumentasi visual dari Invoice & RAB Maker dengan penjelasan fitur-fiturnya.
 **URL:** `/`
 
 Landing page dengan desain modern dan card-based selection:
-- **Navbar** dengan logo "Invoice & RAB Maker" dan navigation links
+- **Navbar** dengan logo "Pagu.id" dan navigation links
 - **Hero Title** dengan gradient text
 - **Feature Cards** untuk Invoice dan RAB dengan icon, description, dan benefits
 - **Info Section** dengan 3 benefit cards: ⚡ Cepat, 🆓 Gratis, 🇮🇩 Format Indonesia

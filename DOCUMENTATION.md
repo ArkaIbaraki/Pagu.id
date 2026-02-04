@@ -3,7 +3,7 @@
 ## Struktur Project
 
 ```
-invoice-rab-maker/
+pagu.id/
 ├── app/
 │   ├── Helpers/
 │   │   ├── Terbilang.php          # Class konversi angka ke kata

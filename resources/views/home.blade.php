@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Tool gratis untuk membuat invoice dan RAB versi Indonesia. Tanpa login, langsung pakai!">
-    <title>Invoice & RAB Maker - Indonesia</title>
+    <title>Pagu.id - Invoice & RAB Maker Indonesia</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -17,7 +17,7 @@
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
                     <a href="/" class="text-xl font-bold text-gray-900">
-                        📄 Invoice & RAB Maker
+                        📄 Pagu.id
                     </a>
                 </div>
                 <div class="flex space-x-4">
@@ -41,7 +41,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h1 class="text-5xl font-bold text-gray-900 mb-4">
-                    📄 Invoice & RAB Maker
+                    📄 Pagu.id
                 </h1>
                 <p class="text-xl text-gray-600 mb-2">
                     Tool gratis untuk membuat invoice dan RAB versi Indonesia

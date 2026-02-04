@@ -2,7 +2,7 @@
 
 ## 🎉 Project Status: **COMPLETED**
 
-Invoice & RAB Maker versi Indonesia telah selesai dibangun dan siap digunakan!
+Pagu.id - Invoice & RAB Maker versi Indonesia telah selesai dibangun dan siap digunakan!
 
 ---
 

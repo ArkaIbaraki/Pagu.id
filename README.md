@@ -1,4 +1,4 @@
-# 📄 Invoice & RAB Maker - Indonesia
+# 📄 Pagu.id - Invoice & RAB Maker Indonesia
 
 Sebuah web tool **tanpa login** untuk membuat Invoice & RAB (Rencana Anggaran Biaya) yang disesuaikan dengan praktik umum di Indonesia. Bisa dipakai siapa saja secara langsung tanpa ribet desain atau template.
 
@@ -323,5 +323,5 @@ Jika ada issue atau pertanyaan, silakan buat issue di repository ini.
 
 ---
 
-**Dibuat dengan ❤️ untuk komunitas Indonesia**
+**Pagu.id** - Dibuat dengan ❤️ untuk komunitas Indonesia
 

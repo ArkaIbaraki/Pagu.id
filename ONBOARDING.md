@@ -4,9 +4,9 @@ Welcome! Guide ini akan membantu Anda familiar dengan codebase dalam waktu singk
 
 ## 📁 Project Overview
 
-**Invoice & RAB Maker** adalah web tool untuk membuat invoice versi Indonesia tanpa perlu login. Built with Laravel 12 + Livewire 4.
+**Pagu.id** adalah web tool untuk membuat invoice dan RAB versi Indonesia tanpa perlu login. Built with Laravel 12 + Livewire 4.
 
-**Goal:** Membuat invoice dalam < 3 menit dengan format yang rapi dan profesional.
+**Goal:** Membuat invoice atau RAB dalam < 3 menit dengan format yang rapi dan profesional.
 
 ## 🎯 Quick Navigation
 

@@ -22,98 +22,27 @@ Sebuah web tool **tanpa login** untuk membuat Invoice & RAB (Rencana Anggaran Bi
 
 ## ✨ Fitur Utama
 
-### 🏠 Landing Page & Navigation
-- ✅ Landing page dengan pilihan Invoice atau RAB
-- ✅ Navbar responsif dengan mobile menu
-- ✅ Card-based selection dengan info fitur
-- ✅ Clean & modern UI
-
-### 🎯 Tanpa Login & Dashboard
-- ✅ Public tool yang langsung bisa dipakai
-- ✅ Tidak perlu registrasi atau login
-- ✅ Fokus pada invoice & RAB versi Indonesia
-- ✅ Data tidak disimpan di server (privacy-friendly)
+### � Tanpa Login
+Public tool yang langsung bisa dipakai tanpa registrasi. Data tidak disimpan di server (privacy-friendly).
 
 ### 📋 Invoice Maker
-
-**Header Customization:**
-- ✅ Pilihan gaya header: Nama Usaha atau Title "INVOICE" saja
-- ✅ Support logo/kop perusahaan (Base64 image)
-- ✅ Nomor invoice (auto-generate dengan format: INV-YYYYMMDD-XXXX)
-- ✅ Tanggal invoice otomatis
-
-**Mode Item Fleksibel:**
-User bisa memilih mode item sesuai kebutuhan:
-
-**Mode Dengan Quantity:**
-- Deskripsi item
-- Quantity (jumlah)
-- Harga satuan
-- Subtotal (otomatis dihitung)
-
-**Mode Tanpa Quantity:**
-- Deskripsi item
-- Harga langsung
-
-**Data Penerima:**
-- ✅ Nama penerima / klien (opsional)
-- ✅ Alamat lengkap (opsional)
-
-### 💰 Perhitungan Otomatis Invoice
-- ✅ Subtotal semua item
-- ✅ Diskon (nominal atau persen) - opsional
-- ✅ PPN 11% - opsional
-- ✅ Total akhir
-- ✅ Semua update secara real-time dengan Livewire
+- **Header Customization**: Logo/kop perusahaan, pilihan gaya header
+- **Mode Fleksibel**: Dengan/tanpa quantity sesuai kebutuhan
+- **Auto-generate**: Nomor invoice otomatis (INV-YYYYMMDD-XXXX)
+- **Perhitungan Real-time**: Subtotal, diskon (nominal/persen), PPN 11%, total akhir
+- **Terbilang Indonesia**: Konversi angka ke kata (18.759.000 → "Delapan Belas Juta...")
 
 ### 📊 RAB Maker (Rencana Anggaran Biaya)
+- **Volume-based calculations**: Volume × Harga Satuan dengan berbagai satuan
+- **Header lengkap**: Nama proyek, nomor RAB, lokasi, pemilik
+- **Footer profesional**: Total anggaran, nama pembuat & penyetuju
 
-**Header RAB:**
-- ✅ Nama proyek
-- ✅ Nomor RAB (auto-generate: RAB-YYYYMMDD-XXXX)
-- ✅ Tanggal RAB
-- ✅ Lokasi proyek
-- ✅ Nama pemilik proyek
+### 👁️ Live Preview & Export
+- Preview real-time dengan layout side-by-side responsive
+- Export ke PDF atau print langsung dari browser
+- Format profesional siap kirim ke klien
 
-**Item Rincian Volume-Based:**
-- ✅ Deskripsi/uraian pekerjaan
-- ✅ Volume (jumlah volume)
-- ✅ Satuan (unit, m², m³, meter, kg, set, ls, dll)
-- ✅ Harga satuan
-- ✅ Jumlah (volume × harga satuan, otomatis)
-
-**Footer RAB:**
-- ✅ Total anggaran otomatis
-- ✅ Catatan tambahan (opsional)
-- ✅ Nama pembuat (opsional)
-- ✅ Nama penyetuju (opsional)
-
-### 🇮🇩 Terbilang (Ciri Khas Indonesia!)
-- ✅ Konversi angka ke kata-kata Indonesia
-- ✅ Contoh: `18.759.000` → `Delapan Belas Juta Tujuh Ratus Lima Puluh Sembilan Ribu Rupiah`
-- ✅ Toggle on/off untuk invoice
-- ✅ Auto-generate, bukan input manual
-- ✅ Support hingga triliun
-
-### 👁️ Live Preview
-- ✅ Preview invoice/RAB secara real-time
-- ✅ Side-by-side dengan form input (responsive 2 kolom)
-- ✅ WYSIWYG - What You See Is What You Get
-- ✅ Format profesional & clean
-
-### 📤 Export & Print
-- ✅ Print langsung dari browser
-- ✅ Export ke PDF dengan format rapi
-- ✅ PDF dengan layout optimized
-- ✅ Filename auto-generated (invoice-XXX.pdf / rab-XXX.pdf)
-- ✅ Siap digunakan untuk dikirim ke klien
-
-### 📝 Footer & Signature
-- ✅ Total akhir dengan format Rupiah
-- ✅ Terbilang otomatis (invoice)
-- ✅ Catatan tambahan (opsional)
-- ✅ Nama penanda tangan (opsional)
-- ✅ Space untuk tanda tangan manual
+> 📸 **Lihat detail lengkap & screenshot di [docs/SCREENSHOTS.md](docs/SCREENSHOTS.md)**
 
 ## 🛠️ Tech Stack
 

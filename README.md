@@ -10,12 +10,13 @@ Sebuah web tool **tanpa login** untuk membuat Invoice & RAB (Rencana Anggaran Bi
 
 ## 📚 Dokumentasi
 
-- 🚀 **[Quick Start Guide](QUICKSTART.md)** - Setup dalam 5 menit
-- 📖 **[Technical Documentation](DOCUMENTATION.md)** - Struktur kode & arsitektur
-- 🎓 **[Developer Onboarding](ONBOARDING.md)** - Guide untuk developer baru
-- 🤝 **[Contributing Guidelines](CONTRIBUTING.md)** - Cara berkontribusi
-- 📸 **[Screenshots & Features](SCREENSHOTS.md)** - Visual showcase
-- 📝 **[Changelog](CHANGELOG.md)** - Version history & updates
+- 🚀 **[Quick Start Guide](docs/QUICKSTART.md)** - Setup dalam 5 menit
+- 📖 **[Technical Documentation](docs/DOCUMENTATION.md)** - Struktur kode & arsitektur
+- 🎓 **[Developer Onboarding](docs/ONBOARDING.md)** - Guide untuk developer baru
+- 🤝 **[Contributing Guidelines](docs/CONTRIBUTING.md)** - Cara berkontribusi
+- 📸 **[Screenshots & Features](docs/SCREENSHOTS.md)** - Visual showcase
+- 📝 **[Changelog](docs/CHANGELOG.md)** - Version history & updates
+- 📋 **[Quick Reference](docs/QUICK_REFERENCE.md)** - Cheat sheet development
 
 ---
 

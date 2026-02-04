@@ -102,8 +102,8 @@ Item 1
 _____________________________________________
 
 No. Invoice: INV-20260204-D846    Tanggal: 04 February 2026
-Pelanggan: Sekolah Taruna Bhakti
-Alamat: Jl. Pekapuran Kel. Curug Kec. Cimanggis Kota Depok
+Pelanggan: PT. Contoh Indonesia
+Alamat: Jl. Sudirman No. 123, Jakarta Pusat
 ```
 
 **Table Items:**
@@ -113,8 +113,8 @@ Alamat: Jl. Pekapuran Kel. Curug Kec. Cimanggis Kota Depok
 ┌────┬───────────────┬─────┬──────────┬──────────────┐
 │ No │ Keterangan    │ Qty │  Harga   │ Jumlah (Rp)  │
 ├────┼───────────────┼─────┼──────────┼──────────────┤
-│ 1  │ Jasa Pindah   │ 12  │ Rp 5.150 │  Rp 5.150.000│
-│ 2  │ Material      │ 10  │ Rp 1.175 │ Rp 11.750.000│
+│ 1  │ Product A     │ 10  │ Rp 50.000│  Rp 500.000  │
+│ 2  │ Product B     │  5  │ Rp 100.000│ Rp 500.000  │
 └────┴───────────────┴─────┴──────────┴──────────────┘
 ```
 
@@ -123,23 +123,23 @@ Alamat: Jl. Pekapuran Kel. Curug Kec. Cimanggis Kota Depok
 ┌────┬───────────────┬──────────────┐
 │ No │ Keterangan    │ Jumlah (Rp)  │
 ├────┼───────────────┼──────────────┤
-│ 1  │ Jasa Konsul   │  Rp 5.150.000│
-│ 2  │ Desain Web    │ Rp 11.750.000│
+│ 1  │ Jasa Konsultasi│ Rp 500.000  │
+│ 2  │ Service Fee   │  Rp 500.000  │
 └────┴───────────────┴──────────────┘
 ```
 
 **Summary Table:**
 ```
-                     Subtotal    Rp 16.900.000
-                     PPN 11%      Rp 1.859.000
+                     Subtotal    Rp 1.000.000
+                     PPN 11%      Rp 110.000
 ═════════════════════════════════════════════
-                     Total       Rp 18.759.000
+                     Total       Rp 1.110.000
 ═════════════════════════════════════════════
 ```
 
 **Terbilang:**
 ```
-Terbilang: Delapan Belas Juta Tujuh Ratus Lima Puluh Sembilan Ribu Rupiah
+Terbilang: Satu Juta Seratus Sepuluh Ribu Rupiah
 ```
 
 **Action Buttons:**
@@ -205,12 +205,12 @@ Jumlah = Volume × Harga Satuan
 **Header Display:**
 ```
     RENCANA ANGGARAN BIAYA
-        Renovasi Gedung A
+        Contoh Proyek
 _____________________________________________
 
 No. RAB: RAB-20260204-A123       Tanggal: 04 February 2026
-Lokasi: Depok
-Pemilik: Sekolah Taruna Bhakti
+Lokasi: Jakarta
+Pemilik: PT. Contoh Indonesia
 ```
 
 **Table Rincian:**
@@ -218,19 +218,19 @@ Pemilik: Sekolah Taruna Bhakti
 ┌────┬──────────────┬────────┬────────┬─────────────┬──────────────┐
 │ No │   Uraian     │ Volume │ Satuan │    Harga    │  Jumlah (Rp) │
 ├────┼──────────────┼────────┼────────┼─────────────┼──────────────┤
-│ 1  │ Cat Tembok   │   150  │   m²   │ Rp 35.000   │  Rp 5.250.000│
-│ 2  │ Keramik      │    80  │   m²   │ Rp 125.000  │ Rp 10.000.000│
-│ 3  │ Plafon       │    65  │   m²   │ Rp 95.000   │  Rp 6.175.000│
+│ 1  │ Item A       │   100  │   m²   │ Rp 10.000   │  Rp 1.000.000│
+│ 2  │ Item B       │    50  │   unit │ Rp 20.000   │  Rp 1.000.000│
+│ 3  │ Item C       │    75  │   kg   │ Rp 15.000   │  Rp 1.125.000│
 └────┴──────────────┴────────┴────────┴─────────────┴──────────────┘
 
-                             TOTAL ANGGARAN: Rp 21.425.000
+                             TOTAL ANGGARAN: Rp 3.125.000
 ```
 
 **Signature Section:**
 ```
 Catatan: Harga sudah termasuk material dan upah
 
-Depok, 04 February 2026
+Jakarta, 04 February 2026
 
 Pembuat,                    Penyetuju,
 

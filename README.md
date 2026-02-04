@@ -1,6 +1,6 @@
 # 📄 Invoice & RAB Maker - Indonesia
 
-Sebuah web tool **tanpa login** untuk membuat Invoice & RAB yang disesuaikan dengan praktik umum di Indonesia. Bisa dipakai siapa saja secara langsung tanpa ribet desain atau template.
+Sebuah web tool **tanpa login** untuk membuat Invoice & RAB (Rencana Anggaran Biaya) yang disesuaikan dengan praktik umum di Indonesia. Bisa dipakai siapa saja secara langsung tanpa ribet desain atau template.
 
 ![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?logo=laravel)
 ![Livewire](https://img.shields.io/badge/Livewire-4-FB70A9?logo=livewire)
@@ -21,68 +21,107 @@ Sebuah web tool **tanpa login** untuk membuat Invoice & RAB yang disesuaikan den
 
 ## ✨ Fitur Utama
 
+### 🏠 Landing Page & Navigation
+- ✅ Landing page dengan pilihan Invoice atau RAB
+- ✅ Navbar responsif dengan mobile menu
+- ✅ Card-based selection dengan info fitur
+- ✅ Clean & modern UI
+
 ### 🎯 Tanpa Login & Dashboard
 - ✅ Public tool yang langsung bisa dipakai
 - ✅ Tidak perlu registrasi atau login
-- ✅ Fokus pada invoice versi Indonesia
+- ✅ Fokus pada invoice & RAB versi Indonesia
+- ✅ Data tidak disimpan di server (privacy-friendly)
 
-### 📝 Mode Item Fleksibel
+### 📋 Invoice Maker
+
+**Header Customization:**
+- ✅ Pilihan gaya header: Nama Usaha atau Title "INVOICE" saja
+- ✅ Support logo/kop perusahaan (Base64 image)
+- ✅ Nomor invoice (auto-generate dengan format: INV-YYYYMMDD-XXXX)
+- ✅ Tanggal invoice otomatis
+
+**Mode Item Fleksibel:**
 User bisa memilih mode item sesuai kebutuhan:
 
 **Mode Dengan Quantity:**
-- Deskripsi
-- Quantity
-- Harga Satuan
-- Subtotal (otomatis)
+- Deskripsi item
+- Quantity (jumlah)
+- Harga satuan
+- Subtotal (otomatis dihitung)
 
 **Mode Tanpa Quantity:**
-- Deskripsi
-- Harga
+- Deskripsi item
+- Harga langsung
 
-### 📋 Data Invoice Indonesia
-Field yang tersedia:
-- ✅ Nama usaha / pribadi
-- ✅ Nomor invoice (auto-generate)
-- ✅ Tanggal invoice
-- ✅ Nama penerima (opsional)
-- ✅ Alamat (opsional)
+**Data Penerima:**
+- ✅ Nama penerima / klien (opsional)
+- ✅ Alamat lengkap (opsional)
 
-### 🧮 Perhitungan Otomatis
+### 💰 Perhitungan Otomatis Invoice
 - ✅ Subtotal semua item
 - ✅ Diskon (nominal atau persen) - opsional
 - ✅ PPN 11% - opsional
 - ✅ Total akhir
-- ✅ Semua update secara real-time
+- ✅ Semua update secara real-time dengan Livewire
+
+### 📊 RAB Maker (Rencana Anggaran Biaya)
+
+**Header RAB:**
+- ✅ Nama proyek
+- ✅ Nomor RAB (auto-generate: RAB-YYYYMMDD-XXXX)
+- ✅ Tanggal RAB
+- ✅ Lokasi proyek
+- ✅ Nama pemilik proyek
+
+**Item Rincian Volume-Based:**
+- ✅ Deskripsi/uraian pekerjaan
+- ✅ Volume (jumlah volume)
+- ✅ Satuan (unit, m², m³, meter, kg, set, ls, dll)
+- ✅ Harga satuan
+- ✅ Jumlah (volume × harga satuan, otomatis)
+
+**Footer RAB:**
+- ✅ Total anggaran otomatis
+- ✅ Catatan tambahan (opsional)
+- ✅ Nama pembuat (opsional)
+- ✅ Nama penyetuju (opsional)
 
 ### 🇮🇩 Terbilang (Ciri Khas Indonesia!)
 - ✅ Konversi angka ke kata-kata Indonesia
-- ✅ Contoh: `1.500.000` → `Satu Juta Lima Ratus Ribu Rupiah`
-- ✅ Toggle on/off
+- ✅ Contoh: `18.759.000` → `Delapan Belas Juta Tujuh Ratus Lima Puluh Sembilan Ribu Rupiah`
+- ✅ Toggle on/off untuk invoice
 - ✅ Auto-generate, bukan input manual
+- ✅ Support hingga triliun
 
 ### 👁️ Live Preview
-- ✅ Preview invoice secara real-time
-- ✅ Side-by-side dengan form input
+- ✅ Preview invoice/RAB secara real-time
+- ✅ Side-by-side dengan form input (responsive 2 kolom)
 - ✅ WYSIWYG - What You See Is What You Get
+- ✅ Format profesional & clean
 
 ### 📤 Export & Print
 - ✅ Print langsung dari browser
 - ✅ Export ke PDF dengan format rapi
+- ✅ PDF dengan layout optimized
+- ✅ Filename auto-generated (invoice-XXX.pdf / rab-XXX.pdf)
 - ✅ Siap digunakan untuk dikirim ke klien
 
-### 📝 Footer Invoice
-- ✅ Total akhir
-- ✅ Terbilang otomatis
-- ✅ Catatan (opsional)
-- ✅ Tanda tangan (opsional)
+### 📝 Footer & Signature
+- ✅ Total akhir dengan format Rupiah
+- ✅ Terbilang otomatis (invoice)
+- ✅ Catatan tambahan (opsional)
+- ✅ Nama penanda tangan (opsional)
+- ✅ Space untuk tanda tangan manual
 
 ## 🛠️ Tech Stack
 
 - **Laravel 12** - Backend framework
-- **Livewire 4** - Reactive components
+- **Livewire 4** - Reactive components (single-file pattern)
 - **Blade** - Templating engine
-- **Tailwind CSS** - Styling
-- **DomPDF** - PDF generation
+- **Tailwind CSS 4.0** - Utility-first styling
+- **DomPDF 3.1** - PDF generation
+- **Vite 6.4** - Asset bundling & hot reload
 
 ## 📦 Instalasi
 

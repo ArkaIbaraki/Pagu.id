@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tool gratis untuk membuat invoice dan RAB versi Indonesia. Tanpa login, langsung pakai!">
+    <meta name="description"
+        content="Tool gratis untuk membuat invoice dan RAB versi Indonesia. Tanpa login, langsung pakai!">
     <title>Invoice & RAB Maker - Indonesia</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+
 <body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
     <!-- Navbar -->
     <nav class="bg-white shadow-md border-b border-gray-200">
@@ -21,7 +24,8 @@
                     <a href="/" class="px-4 py-2 text-gray-700 hover:text-blue-600 font-medium transition-colors">
                         Home
                     </a>
-                    <a href="/invoice" class="px-4 py-2 text-gray-700 hover:text-blue-600 font-medium transition-colors">
+                    <a href="/invoice"
+                        class="px-4 py-2 text-gray-700 hover:text-blue-600 font-medium transition-colors">
                         Invoice
                     </a>
                     <a href="/rab" class="px-4 py-2 text-gray-700 hover:text-blue-600 font-medium transition-colors">
@@ -51,10 +55,12 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <!-- Invoice Card -->
                 <a href="/invoice" class="group">
-                    <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-blue-500">
+                    <div
+                        class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-blue-500">
                         <div class="text-center">
                             <div class="text-6xl mb-4">🧾</div>
-                            <h2 class="text-3xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                            <h2
+                                class="text-3xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
                                 Invoice Maker
                             </h2>
                             <p class="text-gray-600 mb-6">
@@ -79,7 +85,8 @@
                                 </div>
                             </div>
                             <div class="mt-6">
-                                <span class="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-medium group-hover:bg-blue-700 transition-colors">
+                                <span
+                                    class="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-medium group-hover:bg-blue-700 transition-colors">
                                     Buat Invoice →
                                 </span>
                             </div>
@@ -89,10 +96,12 @@
 
                 <!-- RAB Card -->
                 <a href="/rab" class="group">
-                    <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-green-500">
+                    <div
+                        class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-green-500">
                         <div class="text-center">
                             <div class="text-6xl mb-4">📊</div>
-                            <h2 class="text-3xl font-bold text-gray-900 mb-4 group-hover:text-green-600 transition-colors">
+                            <h2
+                                class="text-3xl font-bold text-gray-900 mb-4 group-hover:text-green-600 transition-colors">
                                 RAB Maker
                             </h2>
                             <p class="text-gray-600 mb-6">
@@ -117,7 +126,8 @@
                                 </div>
                             </div>
                             <div class="mt-6">
-                                <span class="inline-block px-6 py-3 bg-green-600 text-white rounded-lg font-medium group-hover:bg-green-700 transition-colors">
+                                <span
+                                    class="inline-block px-6 py-3 bg-green-600 text-white rounded-lg font-medium group-hover:bg-green-700 transition-colors">
                                     Buat RAB →
                                 </span>
                             </div>
@@ -166,4 +176,5 @@
         </div>
     </footer>
 </body>
+
 </html>

@@ -1,320 +1,344 @@
-# 📸 Screenshots & Features Showcase
+# 📸 Screenshots & Features
 
-> **Note:** Screenshots akan ditambahkan setelah deployment
+Dokumentasi visual dari Invoice & RAB Maker dengan penjelasan fitur-fiturnya.
 
-## 🎯 Main Interface
+---
 
-### Desktop View
+## 🏠 Landing Page
+
+### Hero Section
+**URL:** `/`
+
+Landing page dengan desain modern dan card-based selection:
+- **Navbar** dengan logo "Invoice & RAB Maker" dan navigation links
+- **Hero Title** dengan gradient text
+- **Feature Cards** untuk Invoice dan RAB dengan icon, description, dan benefits
+- **Info Section** dengan 3 benefit cards: ⚡ Cepat, 🆓 Gratis, 🇮🇩 Format Indonesia
+
+**Features Highlighted:**
+- Mobile-responsive dengan hamburger menu
+- Hover animations pada cards
+- Clean gradient backgrounds
+- Call-to-action buttons ("Buat Invoice" / "Buat RAB")
+
+---
+
+## 📄 Invoice Maker
+
+### URL: `/invoice`
+
+### 1. Header Customization
+
+**Gaya Header Invoice:**
+- Radio buttons: "Tampilkan Nama Usaha" atau "Title INVOICE Saja"
+- Conditional input: Nama Usaha/Pribadi (hanya muncul jika pilih "Nama Usaha")
+
+**Logo/Kop Perusahaan:**
+- Checkbox: "Gunakan Logo/Kop Perusahaan"
+- Textarea untuk paste Base64 image
+- Link helper ke converter: https://www.base64-image.de/
+- Preview logo di header (kiri atas sebelum title)
+
+### 2. Data Dasar Invoice
+
+**Left Panel - Form Input:**
+- Nomor Invoice (auto-generated: `INV-20260204-D846`)
+- Button 🔄 untuk regenerate nomor
+- Tanggal Invoice (date picker)
+- Nama Penerima (optional)
+- Alamat (optional, textarea)
+
+### 3. Mode Item
+
+**Toggle Mode:**
+- Radio: "Dengan Quantity" atau "Tanpa Quantity"
+
+**Mode Dengan Quantity:**
 ```
-┌─────────────────────────────────────────────────────────┐
-│          📄 Invoice & RAB Maker - Indonesia            │
-│     Tool gratis untuk membuat invoice versi Indonesia   │
-├───────────────────┬─────────────────────────────────────┤
-│                   │                                     │
-│   FORM INPUT      │      LIVE PREVIEW                   │
-│                   │                                     │
-│ • Nama Usaha      │  ┌───────────────────────────────┐ │
-│ • Nomor Invoice   │  │ NAMA USAHA                    │ │
-│ • Tanggal         │  │ Invoice: INV-20260203-A1B2    │ │
-│ • Penerima        │  │ Tanggal: 3 Februari 2026      │ │
-│                   │  └───────────────────────────────┘ │
-│ Mode Item:        │                                     │
-│ ○ Dengan Qty      │  Item 1: Konsultasi Sistem        │
-│ ● Tanpa Qty       │  Rp 5.000.000                      │
-│                   │                                     │
-│ [+ Tambah Item]   │  TOTAL: Rp 5.000.000               │
-│                   │  Terbilang: Lima Juta Rupiah       │
-│ ☑ PPN 11%         │                                     │
-│ ☑ Terbilang       │  [🖨️ Print]  [📄 Export PDF]      │
-│                   │                                     │
-└───────────────────┴─────────────────────────────────────┘
-```
-
-### Mobile View
-```
-┌─────────────────────────┐
-│  📄 Invoice Maker       │
-├─────────────────────────┤
-│                         │
-│   FORM INPUT            │
-│   (Full Width)          │
-│                         │
-├─────────────────────────┤
-│                         │
-│   LIVE PREVIEW          │
-│   (Full Width)          │
-│                         │
-│   [Print] [PDF]         │
-│                         │
-└─────────────────────────┘
-```
-
-## ✨ Features Demo
-
-### 1. Mode Quantity
-**Dengan Quantity:**
-```
-┌────────────────────────────────────────────┐
-│ Item 1                              [Hapus]│
-│ Deskripsi: Laptop ASUS ROG                 │
-│ Qty: [2]  Harga: [10.000.000]             │
-│                                            │
-│ Preview:                                   │
-│ Laptop ASUS ROG  2  Rp 10.000.000         │
-│ Subtotal: Rp 20.000.000                   │
-└────────────────────────────────────────────┘
+Item 1
+[Deskripsi item/jasa________________]
+[Qty___] [Harga Satuan___________]
+[✕ Hapus]
 ```
 
-**Tanpa Quantity:**
+**Mode Tanpa Quantity:**
 ```
-┌────────────────────────────────────────────┐
-│ Item 1                              [Hapus]│
-│ Deskripsi: Konsultasi Web Development      │
-│ Harga: [15.000.000]                        │
-│                                            │
-│ Preview:                                   │
-│ Konsultasi Web Development                 │
-│ Rp 15.000.000                              │
-└────────────────────────────────────────────┘
+Item 1
+[Deskripsi item/jasa________________]
+[Harga__________________________]
+[✕ Hapus]
 ```
 
-### 2. Terbilang (Highlight Feature!) 🇮🇩
-```
-Input Total: Rp 1.500.000
+**Actions:**
+- Button "+ Tambah Item" (hijau)
+- Button "✕ Hapus" untuk setiap item (kecuali item pertama)
 
-Output Terbilang:
-┌────────────────────────────────────────────┐
-│ Terbilang:                                 │
-│ Satu Juta Lima Ratus Ribu Rupiah          │
-└────────────────────────────────────────────┘
-```
+### 4. Perhitungan
 
-**Contoh Lain:**
-- `5.250.000` → "Lima Juta Dua Ratus Lima Puluh Ribu Rupiah"
-- `123.456.789` → "Seratus Dua Puluh Tiga Juta Empat Ratus Lima Puluh Enam Ribu Tujuh Ratus Delapan Puluh Sembilan Rupiah"
-- `1.000.000.000` → "Satu Miliar Rupiah"
+**Diskon (Optional):**
+- Checkbox: "Gunakan Diskon"
+- Radio: "Nominal" atau "Persen"
+- Input field sesuai pilihan
 
-### 3. Perhitungan Real-time
-```
-Subtotal:        Rp  10.000.000
-Diskon (10%):  - Rp   1.000.000
-                ─────────────────
-Setelah Diskon:  Rp   9.000.000
-PPN 11%:       + Rp     990.000
-                ─────────────────
-TOTAL:           Rp   9.990.000
-                 ═════════════════
-Terbilang: Sembilan Juta Sembilan Ratus Sembilan Puluh Ribu Rupiah
-```
+**PPN (Optional):**
+- Checkbox: "Tambah PPN 11%"
 
-### 4. PDF Output Preview
+**Terbilang:**
+- Checkbox: "Tampilkan Terbilang"
+
+### 5. Footer Invoice
+
+**Form Fields:**
+- Catatan (textarea, optional)
+- Nama Penanda Tangan (optional)
+
+### 6. Live Preview (Right Panel)
+
+**Header Display:**
 ```
-┌───────────────────────────────────────┐
-│                                       │
-│  PT. CONTOH JAYA                      │
-│  Invoice: INV-20260203-A1B2           │
-│  Tanggal: 3 Februari 2026             │
-│  ───────────────────────────────────  │
-│                                       │
-│  Kepada:                              │
-│  PT. Client Sejahtera                 │
-│  Jl. Sudirman No. 123, Jakarta        │
-│                                       │
-│  ───────────────────────────────────  │
-│  Deskripsi         Qty  Harga    Sub  │
-│  ───────────────────────────────────  │
-│  Web Development    1   15.000.000    │
-│  Hosting 1 Tahun    1    3.000.000    │
-│  ───────────────────────────────────  │
-│                                       │
-│              Subtotal:  18.000.000    │
-│              PPN 11%:    1.980.000    │
-│              ───────────────────────  │
-│              TOTAL:     19.980.000    │
-│              ═══════════════════════  │
-│                                       │
-│  Terbilang:                           │
-│  Sembilan Belas Juta Sembilan Ratus   │
-│  Delapan Puluh Ribu Rupiah            │
-│                                       │
-│  Catatan:                             │
-│  Pembayaran dapat dilakukan melalui   │
-│  transfer bank.                       │
-│                                       │
-│                    Hormat kami,       │
-│                                       │
-│                    [TTD Area]         │
-│                    ─────────────      │
-│                    Budi Santoso       │
-│                                       │
-└───────────────────────────────────────┘
+[Logo Kop]          (jika ada)
+
+        INVOICE      (centered, atau Nama Usaha)
+_____________________________________________
+
+No. Invoice: INV-20260204-D846    Tanggal: 04 February 2026
+Pelanggan: Sekolah Taruna Bhakti
+Alamat: Jl. Pekapuran Kel. Curug Kec. Cimanggis Kota Depok
 ```
 
-## 🎨 UI Components
+**Table Items:**
 
-### Form Elements
-- ✅ Text input - Clean, modern style
-- ✅ Number input - With step controls
-- ✅ Date picker - Native HTML5
-- ✅ Textarea - Multi-line input
-- ✅ Radio buttons - Mode selection
-- ✅ Checkboxes - Toggle options
-- ✅ Buttons - Primary & secondary
-- ✅ Loading states - Smooth transitions
+*Mode Dengan Quantity:*
+```
+┌────┬───────────────┬─────┬──────────┬──────────────┐
+│ No │ Keterangan    │ Qty │  Harga   │ Jumlah (Rp)  │
+├────┼───────────────┼─────┼──────────┼──────────────┤
+│ 1  │ Jasa Pindah   │ 12  │ Rp 5.150 │  Rp 5.150.000│
+│ 2  │ Material      │ 10  │ Rp 1.175 │ Rp 11.750.000│
+└────┴───────────────┴─────┴──────────┴──────────────┘
+```
+
+*Mode Tanpa Quantity:*
+```
+┌────┬───────────────┬──────────────┐
+│ No │ Keterangan    │ Jumlah (Rp)  │
+├────┼───────────────┼──────────────┤
+│ 1  │ Jasa Konsul   │  Rp 5.150.000│
+│ 2  │ Desain Web    │ Rp 11.750.000│
+└────┴───────────────┴──────────────┘
+```
+
+**Summary Table:**
+```
+                     Subtotal    Rp 16.900.000
+                     PPN 11%      Rp 1.859.000
+═════════════════════════════════════════════
+                     Total       Rp 18.759.000
+═════════════════════════════════════════════
+```
+
+**Terbilang:**
+```
+Terbilang: Delapan Belas Juta Tujuh Ratus Lima Puluh Sembilan Ribu Rupiah
+```
+
+**Action Buttons:**
+- 🖨️ Print (blue button)
+- 📄 Export PDF (red button)
+
+**Tips Banner:**
+```
+💡 Tips: Semua perubahan akan langsung terlihat di preview.
+         Data tidak disimpan di server.
+```
+
+---
+
+## 📊 RAB Maker (Rencana Anggaran Biaya)
+
+### URL: `/rab`
+
+### 1. Header Data Proyek
+
+**Left Panel - Form Input:**
+- Nama Proyek
+- Nomor RAB (auto-generated: `RAB-20260204-XXXX`)
+- Button 🔄 untuk regenerate
+- Tanggal RAB (date picker)
+- Lokasi Proyek
+- Nama Pemilik Proyek
+
+### 2. Item Rincian (Volume-Based)
+
+**Item Structure:**
+```
+Item 1
+[Deskripsi/Uraian Pekerjaan_______]
+[Volume] [Satuan▼] [Harga Satuan_]
+                    Subtotal: Rp 0
+[✕ Hapus]
+```
+
+**Satuan Dropdown:**
+- unit
+- m² (meter persegi)
+- m³ (meter kubik)
+- meter
+- kg
+- set
+- ls (lump sum)
+
+**Calculation:**
+```
+Jumlah = Volume × Harga Satuan
+```
+
+### 3. Footer RAB
+
+**Form Fields:**
+- Catatan (textarea, optional)
+- Nama Pembuat
+- Nama Penyetuju
+
+### 4. Live Preview (Right Panel)
+
+**Header Display:**
+```
+    RENCANA ANGGARAN BIAYA
+        Renovasi Gedung A
+_____________________________________________
+
+No. RAB: RAB-20260204-A123       Tanggal: 04 February 2026
+Lokasi: Depok
+Pemilik: Sekolah Taruna Bhakti
+```
+
+**Table Rincian:**
+```
+┌────┬──────────────┬────────┬────────┬─────────────┬──────────────┐
+│ No │   Uraian     │ Volume │ Satuan │    Harga    │  Jumlah (Rp) │
+├────┼──────────────┼────────┼────────┼─────────────┼──────────────┤
+│ 1  │ Cat Tembok   │   150  │   m²   │ Rp 35.000   │  Rp 5.250.000│
+│ 2  │ Keramik      │    80  │   m²   │ Rp 125.000  │ Rp 10.000.000│
+│ 3  │ Plafon       │    65  │   m²   │ Rp 95.000   │  Rp 6.175.000│
+└────┴──────────────┴────────┴────────┴─────────────┴──────────────┘
+
+                             TOTAL ANGGARAN: Rp 21.425.000
+```
+
+**Signature Section:**
+```
+Catatan: Harga sudah termasuk material dan upah
+
+Depok, 04 February 2026
+
+Pembuat,                    Penyetuju,
+
+
+_____________              _____________
+[Nama Pembuat]            [Nama Penyetuju]
+```
+
+---
+
+## 📱 Responsive Design
+
+### Mobile View (< 1024px)
+
+**Navigation:**
+- Hamburger menu (☰) button
+- Dropdown menu dengan slide animation
+- Active link highlighting
+
+**Layout:**
+- Form dan Preview menjadi 1 kolom (stacked)
+- Preview sticky di atas on scroll
+- Touch-friendly buttons dan inputs
+- Optimized spacing untuk mobile
+
+### Desktop View (≥ 1024px)
+
+**Layout:**
+- 2 kolom side-by-side (Form | Preview)
+- Preview sticky pada scroll
+- Larger font sizes
+- More whitespace
+
+---
+
+## 🖨️ Print & PDF Export
+
+### Print View
+
+**Features:**
+- Clean print layout tanpa navbar/buttons
+- Optimized margins
+- Professional typography
+- All calculations preserved
+- Logo/kop included (jika ada)
+
+### PDF Export
+
+**Features:**
+- Filename: `invoice-INV-XXXXXXX.pdf` atau `rab-RAB-XXXXXXX.pdf`
+- A4 size optimized
+- Inline CSS untuk konsistensi
+- Base64 image support untuk logo
+- Professional border dan spacing
+- Ready to email atau print
+
+**PDF Structure:**
+```
+[Header with Logo]
+[Title: INVOICE / RENCANA ANGGARAN BIAYA]
+[Info Section]
+[Items Table]
+[Summary/Total]
+[Terbilang (invoice only)]
+[Catatan]
+[Signature Space]
+```
+
+---
+
+## 🎨 UI/UX Highlights
 
 ### Color Scheme
-```
-Primary:   #2563EB (Blue 600)
-Success:   #16A34A (Green 600)
-Danger:    #DC2626 (Red 600)
-Warning:   #F59E0B (Amber 500)
-Gray:      #6B7280 (Gray 500)
-Background: #F9FAFB (Gray 50)
-```
+- **Primary:** Blue (#3B82F6) untuk Invoice
+- **Accent:** Green (#10B981) untuk RAB
+- **Danger:** Red (#EF4444) untuk delete actions
+- **Background:** Gradient dari purple ke pink
+
+### Interactions
+- **Hover Effects:** Transform scale, shadow elevation
+- **Active States:** Border color changes
+- **Loading States:** Livewire wire:loading indicators
+- **Validation:** Real-time error messages
 
 ### Typography
-- **Headings:** Bold, clear hierarchy
-- **Body:** 14px-16px, readable
-- **Numbers:** Monospace dalam tabel
-- **Terbilang:** Italic, emphasized
-
-## 📱 Responsive Breakpoints
-
-```
-Mobile:   < 640px   (Stack layout)
-Tablet:   640-1024px (Optimized)
-Desktop:  > 1024px   (Side-by-side)
-```
-
-## 🎬 User Journey
-
-### Quick Demo Flow
-```
-1. Land on homepage
-   ↓
-2. See pre-filled invoice number
-   ↓
-3. Enter business name
-   ↓
-4. Add items (real-time preview)
-   ↓
-5. Toggle options (instant update)
-   ↓
-6. See terbilang auto-generate
-   ↓
-7. Click Export PDF
-   ↓
-8. Download ready-to-use invoice
-```
-
-### Time to First Invoice
-**Target: < 2 minutes**
-- 0:00 - Load page
-- 0:10 - Enter business name
-- 0:30 - Add 2-3 items
-- 0:45 - Toggle PPN
-- 1:00 - Preview check
-- 1:30 - Export PDF
-- 2:00 - Done! ✅
-
-## 🆚 Comparison
-
-### Before (Manual Invoice)
-```
-⏱️ Time: 15-30 minutes
-❌ Need template
-❌ Manual calculation
-❌ Copy-paste errors
-❌ Formatting issues
-❌ No terbilang automation
-```
-
-### After (Invoice Maker)
-```
-⏱️ Time: 2-5 minutes
-✅ No template needed
-✅ Auto calculation
-✅ Error-free
-✅ Consistent format
-✅ Auto terbilang 🇮🇩
-```
-
-## 🎯 Use Cases
-
-### 1. Freelancer
-```
-Project: Web Development
-Items:
-- Design UI/UX: Rp 5.000.000
-- Development: Rp 15.000.000
-- Testing: Rp 3.000.000
-Total: Rp 23.000.000
-```
-
-### 2. Small Business
-```
-Project: Penjualan Produk
-Items:
-- Mouse Wireless (10x @ 150.000)
-- Keyboard Mechanical (5x @ 500.000)
-Diskon: 5%
-PPN: 11%
-Total: Rp 2.886.938
-```
-
-### 3. Consultant
-```
-Project: Konsultasi Bisnis
-Items:
-- Konsultasi Strategi: Rp 10.000.000
-- Laporan Analisis: Rp 5.000.000
-Total: Rp 15.000.000
-```
-
-## 📊 Statistics (Projected)
-
-```
-Invoice Generation Time: < 3 min
-Error Rate: Near 0%
-User Satisfaction: High
-Learning Curve: Minimal
-Mobile Usage: ~40%
-PDF Downloads: ~80%
-Print Usage: ~20%
-```
-
-## 🎁 Benefits
-
-### For Users
-- ⚡ Fast - Create invoice dalam menit
-- 🎯 Accurate - No calculation errors
-- 📱 Accessible - Any device, anywhere
-- 🆓 Free - No subscription
-- 🇮🇩 Local - Format Indonesia
-
-### For Business
-- 💼 Professional - Clean, standardized format
-- ⏰ Time-saving - 10x faster than manual
-- 🔄 Consistent - Same format every time
-- 📄 Shareable - PDF ready to send
+- **Headers:** Bold, large size (text-2xl to text-4xl)
+- **Labels:** Font-semibold, text-sm
+- **Values:** Font-medium, adequate spacing
+- **Monospace:** For invoice/RAB numbers
 
 ---
 
-## 📸 How to Add Screenshots
+## ✨ Key Features Visual Summary
 
-Untuk menambahkan screenshot:
-
-1. Take screenshots saat aplikasi berjalan
-2. Simpan di folder `/screenshots`
-3. Update README.md dengan link image
-4. Commit & push
-
-Format nama file:
-- `desktop-main.png`
-- `mobile-preview.png`
-- `pdf-output.png`
-- `feature-terbilang.png`
+| Feature | Invoice | RAB | Visual Indicator |
+|---------|---------|-----|------------------|
+| Auto Number | ✅ | ✅ | 🔢 INV/RAB-YYYYMMDD |
+| Live Preview | ✅ | ✅ | 👁️ Side-by-side |
+| PDF Export | ✅ | ✅ | 📄 Red button |
+| Print | ✅ | ✅ | 🖨️ Blue button |
+| Terbilang | ✅ | ❌ | 🇮🇩 Toggle on/off |
+| Logo Support | ✅ | ❌ | 🖼️ Base64 image |
+| Quantity Mode | ✅ | ❌ | 🔢 Toggle |
+| Volume Calc | ❌ | ✅ | 📏 Volume × Harga |
+| Discount | ✅ | ❌ | 💰 % or Nominal |
+| PPN 11% | ✅ | ❌ | 🧾 Checkbox |
+| Signatures | ✅ | ✅ | ✍️ Space provided |
 
 ---
 
-**Coming Soon:** Real screenshots dan demo video! 🎥
+*Last Updated: February 4, 2026*

@@ -53,8 +53,14 @@ upstream php {
 
 server {
     listen 80 default_server;
+    server_name _;
+
     root /var/www/html/public;
     index index.php;
+
+    # Enable gzip compression
+    gzip on;
+    gzip_types text/plain text/css text/javascript application/javascript application/json;
 
     location / {
         try_files $uri $uri/ /index.php?$query_string;
@@ -64,6 +70,8 @@ server {
         fastcgi_pass php;
         fastcgi_index index.php;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param HTTPS $http_x_forwarded_proto;
+        fastcgi_param HTTP_SCHEME $http_x_forwarded_proto;
         include fastcgi_params;
     }
 

@@ -1,8 +1,8 @@
 FROM php:8.2-apache
 
-# === FIX MPM ERROR (INI KUNCI UTAMA) ===
-RUN a2dismod mpm_event mpm_worker || true \
-    && a2enmod mpm_prefork
+# === FIX MPM ERROR - DISABLE ALL MPM MODULES FIRST ===
+RUN a2enmod mpm_prefork
+RUN a2dismod mpm_event mpm_worker || true
 
 # Set document root ke public
 RUN sed -i 's|/var/www/html|/var/www/html/public|g' \

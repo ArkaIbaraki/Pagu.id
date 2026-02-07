@@ -58,9 +58,21 @@ server {
     root /var/www/html/public;
     index index.php;
 
+    # Security headers
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+
     # Enable gzip compression
     gzip on;
     gzip_types text/plain text/css text/javascript application/javascript application/json;
+    gzip_min_length 1000;
+
+    # Logging
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log warn;
 
     location / {
         try_files $uri $uri/ /index.php?$query_string;
@@ -72,6 +84,8 @@ server {
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_param HTTPS $http_x_forwarded_proto;
         fastcgi_param HTTP_SCHEME $http_x_forwarded_proto;
+        fastcgi_param HTTP_X_FORWARDED_FOR $proxy_add_x_forwarded_for;
+        fastcgi_param HTTP_X_FORWARDED_PROTO $http_x_forwarded_proto;
         include fastcgi_params;
     }
 
@@ -105,9 +119,12 @@ fi
 # Fix permissions
 chmod -R 777 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
 chown -R www-data:www-data /var/www/html
-# Clear cache
+# Clear cache and recreate
 php artisan config:clear || true
 php artisan cache:clear || true
+php artisan view:clear || true
+# Optimize with caching (for production)
+php artisan config:cache || true
 # Run migrations
 echo "Running migrations..."
 php artisan migrate --force || true

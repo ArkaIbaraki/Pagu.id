@@ -33,12 +33,10 @@ COPY . .
 RUN composer install --no-dev --optimize-autoloader
 
 # Create SQLite database
-RUN mkdir -p database \
+RUN mkdir -p database storage/logs storage/framework/cache storage/framework/sessions storage/framework/views \
     && touch database/database.sqlite \
-    && chown -R www-data:www-data \
-        database \
-        storage \
-        bootstrap/cache
+    && chmod -R 775 database storage bootstrap/cache \
+    && chown -R www-data:www-data /var/www/html
 
 # Configure Nginx
 RUN mkdir -p /etc/nginx/http.d && \
@@ -80,6 +78,10 @@ EXPOSE 80
 RUN cat > /start.sh <<'START'
 #!/bin/sh
 set -e
+# Fix permissions
+chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+chown -R www-data:www-data /var/www/html
+# Run migrations
 php artisan migrate --force || true
 # Start PHP-FPM in background
 php-fpm -D

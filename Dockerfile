@@ -32,10 +32,10 @@ COPY . .
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Create SQLite database
-RUN mkdir -p database storage/logs storage/framework/cache storage/framework/sessions storage/framework/views \
-    && touch database/database.sqlite \
-    && chmod -R 775 database storage bootstrap/cache \
+# Create all necessary directories with proper permissions
+RUN mkdir -p database storage/logs storage/framework/cache storage/framework/sessions storage/framework/views bootstrap/cache \
+    && touch database/database.sqlite storage/logs/laravel.log \
+    && chmod -R 777 database storage bootstrap/cache \
     && chown -R www-data:www-data /var/www/html
 
 # Configure Nginx
@@ -78,14 +78,25 @@ EXPOSE 80
 RUN cat > /start.sh <<'START'
 #!/bin/sh
 set -e
+echo "Starting application..."
+# Ensure .env exists
+if [ ! -f /var/www/html/.env ]; then
+    cp /var/www/html/.env.example /var/www/html/.env || true
+fi
 # Fix permissions
-chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+chmod -R 777 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
 chown -R www-data:www-data /var/www/html
+# Clear and optimize
+php artisan config:clear || true
+php artisan cache:clear || true
 # Run migrations
+echo "Running migrations..."
 php artisan migrate --force || true
 # Start PHP-FPM in background
+echo "Starting PHP-FPM..."
 php-fpm -D
 # Start Nginx in foreground
+echo "Starting Nginx..."
 nginx -g "daemon off;"
 START
 

@@ -1,5 +1,10 @@
 FROM php:8.2-fpm-alpine
 
+# Install Node.js and npm
+RUN apk add --no-cache \
+    nodejs \
+    npm
+
 # Install system dependencies
 RUN apk add --no-cache \
     git \
@@ -32,7 +37,8 @@ COPY . .
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Create all necessary directories with proper permissions
+# Build frontend assets with Vite
+RUN npm install && npm run build
 RUN mkdir -p database storage/logs storage/framework/cache storage/framework/sessions storage/framework/views bootstrap/cache \
     && touch database/database.sqlite storage/logs/laravel.log \
     && chmod -R 777 database storage bootstrap/cache \

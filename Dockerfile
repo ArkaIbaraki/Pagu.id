@@ -1,10 +1,14 @@
 FROM php:8.2-apache
 
+# === FIX MPM ERROR (INI KUNCI UTAMA) ===
+RUN a2dismod mpm_event mpm_worker || true \
+    && a2enmod mpm_prefork
+
 # Set document root ke public
 RUN sed -i 's|/var/www/html|/var/www/html/public|g' \
     /etc/apache2/sites-available/000-default.conf
 
-# Enable apache rewrite
+# Enable rewrite
 RUN a2enmod rewrite
 
 # Install system dependencies
@@ -24,7 +28,7 @@ RUN apt-get update && apt-get install -y \
         bcmath \
         gd
 
-# Install Composer (INI YANG KURANG TADI)
+# Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 # Set working directory

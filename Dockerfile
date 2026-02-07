@@ -1,8 +1,9 @@
 FROM php:8.2-apache
 
-# === FIX MPM ERROR - DISABLE ALL MPM MODULES FIRST ===
-RUN a2enmod mpm_prefork
-RUN a2dismod mpm_event mpm_worker || true
+# === FIX MPM ERROR - REMOVE CONFLICTING MODULES FROM FILESYSTEM ===
+RUN rm -f /etc/apache2/mods-enabled/mpm_worker.* \
+    && rm -f /etc/apache2/mods-enabled/mpm_event.* \
+    && a2enmod mpm_prefork
 
 # Set document root ke public
 RUN sed -i 's|/var/www/html|/var/www/html/public|g' \

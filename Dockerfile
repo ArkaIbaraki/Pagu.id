@@ -1,34 +1,20 @@
-FROM php:8.2-apache
+FROM php:8.2-cli
 
-# Set document root ke public
-RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
-
-# Enable apache modules
-RUN a2enmod rewrite
-
-# Install system deps
-RUN apt-get update && apt-get install -y \
-    libpng-dev \
-    libonig-dev \
-    libxml2-dev \
-    zip unzip git curl \
-    && docker-php-ext-install pdo_mysql mbstring bcmath gd pdo_sqlite
-
-# Set working dir
 WORKDIR /var/www/html
 
-# Copy project
+RUN apt-get update && apt-get install -y \
+    git unzip sqlite3 libsqlite3-dev \
+    && docker-php-ext-install pdo pdo_sqlite
+
 COPY . .
 
-# Create SQLite database file (INI KUNCI)
-RUN mkdir -p database \
-    && touch database/database.sqlite \
-    && chown -R www-data:www-data database storage bootstrap/cache
-
-# Install composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 RUN composer install --no-dev --optimize-autoloader
 
-# Run migrations automatically
-RUN php artisan key:generate || true
-RUN php artisan migrate --force || true
+RUN mkdir -p /var/www/html/database \
+    && touch /var/www/html/database/database.sqlite \
+    && chmod -R 775 /var/www/html/database
+
+EXPOSE 8080
+
+CMD php artisan migrate --force && \
+    php artisan serve --host=0.0.0.0 --port=8080

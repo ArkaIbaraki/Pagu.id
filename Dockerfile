@@ -71,9 +71,10 @@ EOF
 COPY <<EOF /etc/supervisor.d/supervisord.ini
 [supervisord]
 nodaemon=true
+user=root
 
 [program:php-fpm]
-command=/usr/sbin/php-fpm8 -F
+command=/usr/sbin/php-fpm -F
 autorestart=true
 
 [program:nginx]

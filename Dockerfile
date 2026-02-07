@@ -67,9 +67,9 @@ server {
 }
 NGINX
 
-# Laravel setup
-RUN php artisan key:generate || true
-RUN php artisan migrate --force || true
+# Laravel setup - generate key during build
+RUN php artisan key:generate --force || true
+RUN php artisan config:cache || true
 
 # Expose port
 EXPOSE 80
@@ -83,10 +83,15 @@ echo "Starting application..."
 if [ ! -f /var/www/html/.env ]; then
     cp /var/www/html/.env.example /var/www/html/.env || true
 fi
+# Generate APP_KEY if not set
+if [ -z "$APP_KEY" ]; then
+    echo "Generating APP_KEY..."
+    php artisan key:generate --force
+fi
 # Fix permissions
 chmod -R 777 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
 chown -R www-data:www-data /var/www/html
-# Clear and optimize
+# Clear cache
 php artisan config:clear || true
 php artisan cache:clear || true
 # Run migrations

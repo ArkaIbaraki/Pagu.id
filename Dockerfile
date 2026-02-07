@@ -10,14 +10,15 @@ RUN apk add --no-cache \
     libxml2-dev \
     sqlite \
     sqlite-dev \
-    nginx \
-    supervisor \
-    && docker-php-ext-install \
-        pdo \
-        pdo_sqlite \
-        mbstring \
-        bcmath \
-        gd
+    nginx
+
+# Install PHP extensions
+RUN docker-php-ext-install \
+    pdo \
+    pdo_sqlite \
+    mbstring \
+    bcmath \
+    gd
 
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
@@ -40,7 +41,8 @@ RUN mkdir -p database \
         bootstrap/cache
 
 # Configure Nginx
-COPY <<EOF /etc/nginx/http.d/default.conf
+RUN mkdir -p /etc/nginx/http.d && \
+    cat > /etc/nginx/http.d/default.conf <<'NGINX'
 upstream php {
     server 127.0.0.1:9000;
 }
@@ -51,13 +53,13 @@ server {
     index index.php;
 
     location / {
-        try_files \$uri \$uri/ /index.php?\$query_string;
+        try_files $uri $uri/ /index.php?$query_string;
     }
 
     location ~ \.php$ {
         fastcgi_pass php;
         fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         include fastcgi_params;
     }
 
@@ -65,36 +67,25 @@ server {
         deny all;
     }
 }
-EOF
-
-# Configure Supervisor
-COPY <<EOF /etc/supervisor.d/supervisord.ini
-[supervisord]
-nodaemon=true
-user=root
-
-[program:php-fpm]
-command=/usr/sbin/php-fpm -F
-autorestart=true
-
-[program:nginx]
-command=nginx -g "daemon off;"
-autorestart=true
-EOF
-
-# Expose port
-EXPOSE 80
+NGINX
 
 # Laravel setup
 RUN php artisan key:generate || true
 RUN php artisan migrate --force || true
 
+# Expose port
+EXPOSE 80
+
 # Create startup script
-COPY <<EOF /start.sh
+RUN cat > /start.sh <<'START'
 #!/bin/sh
+set -e
 php artisan migrate --force || true
-exec /usr/bin/supervisord -c /etc/supervisor.d/supervisord.ini
-EOF
+# Start PHP-FPM in background
+php-fpm -D
+# Start Nginx in foreground
+nginx -g "daemon off;"
+START
 
 RUN chmod +x /start.sh
 

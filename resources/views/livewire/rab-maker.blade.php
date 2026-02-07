@@ -11,14 +11,14 @@
     @endif
 
     <div class="mb-4">
-        <h1 class="text-2xl font-bold text-gray-900">📊 RAB (Rencana Anggaran Biaya) Maker</h1>
-        <p class="text-gray-600 mt-1">Buat RAB profesional dengan detail lengkap</p>
+        <h1 class="text-xl sm:text-2xl font-bold text-gray-900">📊 RAB (Rencana Anggaran Biaya) Maker</h1>
+        <p class="text-sm text-gray-600 mt-1">Buat RAB profesional dengan detail lengkap</p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
         <!-- FORM INPUT (KIRI) -->
-        <div class="bg-white rounded-lg shadow-lg p-6">
-            <h2 class="text-xl font-bold text-gray-900 mb-4">📝 Data RAB</h2>
+        <div class="bg-white rounded-lg shadow-lg p-4 sm:p-6">
+            <h2 class="text-lg sm:text-xl font-bold text-gray-900 mb-4">📝 Data RAB</h2>
 
             <!-- Data Dasar -->
             <div class="space-y-4 mb-6">
@@ -29,12 +29,12 @@
                         placeholder="Pembangunan Rumah 2 Lantai">
                 </div>
 
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Nomor RAB</label>
                         <div class="flex space-x-2">
                             <input type="text" wire:model.live="nomorRab"
-                                class="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500">
+                                class="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500 text-sm">
                             <button wire:click="regenerateRabNumber"
                                 class="px-3 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 text-sm whitespace-nowrap"
                                 title="Generate nomor baru">
@@ -45,21 +45,21 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Tanggal</label>
                         <input type="date" wire:model.live="tanggalRab"
-                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500">
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500 text-sm">
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Lokasi Proyek</label>
                         <input type="text" wire:model.live="lokasi"
-                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500 text-sm"
                             placeholder="Jakarta Selatan">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Nama Pemilik</label>
                         <input type="text" wire:model.live="namaPemilik"
-                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500 text-sm"
                             placeholder="PT. Contoh">
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                                         placeholder="Contoh: Pekerjaan Pondasi">
                                 </div>
 
-                                <div class="grid grid-cols-3 gap-2">
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
                                     <div>
                                         <label class="block text-xs text-gray-600 mb-1">Volume</label>
                                         <input type="number" wire:model.live="items.{{ $index }}.volume"
@@ -142,21 +142,21 @@
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Catatan (Opsional)</label>
                     <textarea wire:model.live="catatan" rows="2"
-                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500 text-sm"
                         placeholder="Catatan tambahan..."></textarea>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Dibuat Oleh</label>
                         <input type="text" wire:model.live="namaPembuat"
-                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500 text-sm"
                             placeholder="Nama pembuat RAB">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Disetujui Oleh</label>
                         <input type="text" wire:model.live="namaPenyetuju"
-                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500"
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500 text-sm"
                             placeholder="Nama penyetuju">
                     </div>
                 </div>
@@ -184,10 +184,10 @@
         </div>
 
         <!-- LIVE PREVIEW (KANAN) -->
-        <div class="lg:sticky lg:top-6 lg:self-start">
-            <div class="bg-white rounded-lg shadow-lg p-8" id="rab-preview">
+        <div class="lg:sticky lg:top-6 lg:self-start overflow-auto max-h-[80vh]">
+            <div class="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8" id="rab-preview" style="font-size: 0.9rem;">
                 <div class="border-b-2 border-gray-300 pb-4 mb-6">
-                    <h2 class="text-2xl font-bold text-gray-900 text-center">RENCANA ANGGARAN BIAYA</h2>
+                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 text-center">RENCANA ANGGARAN BIAYA</h2>
                     <h3 class="text-xl font-semibold text-gray-800 text-center mt-2">{{ $namaProyek ?: 'NAMA PROYEK' }}
                     </h3>
                     <div class="mt-3 text-sm text-gray-600 space-y-1">

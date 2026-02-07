@@ -10,10 +10,10 @@
         </div>
     @endif
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
         <!-- FORM INPUT (KIRI) -->
-        <div class="bg-white rounded-lg shadow-lg p-6">
-            <h2 class="text-xl font-bold text-gray-900 mb-4">📝 Data Invoice</h2>
+        <div class="bg-white rounded-lg shadow-lg p-4 sm:p-6">
+            <h2 class="text-lg sm:text-xl font-bold text-gray-900 mb-4">📝 Data Invoice</h2>
 
             <!-- Data Dasar -->
             <div class="space-y-4 mb-6">
@@ -61,12 +61,13 @@
                     </div>
                 @endif
 
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Nomor Invoice</label>
                         <div class="flex space-x-2">
                             <input type="text" wire:model.live="nomorInvoice"
-                                class="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                                class="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-sm"
+                                placeholder="INV-20260207-001">
                             <button wire:click="regenerateInvoiceNumber"
                                 class="px-3 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 text-sm whitespace-nowrap"
                                 title="Generate nomor baru">
@@ -77,7 +78,7 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Tanggal</label>
                         <input type="date" wire:model.live="tanggalInvoice"
-                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-sm">
                     </div>
                 </div>
 
@@ -140,17 +141,17 @@
                                     placeholder="Deskripsi item / jasa">
 
                                 @if ($modeQuantity)
-                                    <div class="grid grid-cols-3 gap-2">
+                                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
                                         <input type="number" wire:model.live="items.{{ $index }}.qty"
                                             class="w-full px-2 py-1 border border-gray-300 rounded text-sm"
                                             placeholder="Qty" min="1">
                                         <input type="number" wire:model.live="items.{{ $index }}.harga"
-                                            class="w-full px-2 py-1 border border-gray-300 rounded text-sm col-span-2"
+                                            class="w-full px-2 py-1 border border-gray-300 rounded text-sm sm:col-span-2"
                                             placeholder="Harga satuan" min="0">
                                     </div>
                                 @else
                                     <input type="number" wire:model.live="items.{{ $index }}.harga"
-                                        class="w-full px-2 py-1 border border-gray-300 rounded text-sm"
+                                        class="w-full px-2 py-1 border border-gray-300 rounded-md text-sm"
                                         placeholder="Harga" min="0">
                                 @endif
                             </div>
@@ -232,8 +233,8 @@
         </div>
 
         <!-- LIVE PREVIEW (KANAN) -->
-        <div class="lg:sticky lg:top-6 lg:self-start">
-            <div class="bg-white rounded-lg shadow-lg p-8" id="invoice-preview">
+        <div class="lg:sticky lg:top-6 lg:self-start overflow-auto max-h-[80vh]">
+            <div class="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8" id="invoice-preview" style="font-size: 0.9rem;">
                 <!-- Header -->
                 <div class="mb-6 pb-4 border-b-2 border-gray-300">
                     <!-- Logo/Kop Jika Ada -->

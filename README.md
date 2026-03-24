@@ -20,7 +20,7 @@ Sebuah web tool tanpa login untuk membuat Invoice & RAB (Rencana Anggaran Biaya)
 
 ## 📚 Dokumentasi
 
-- 📖 **[Technical Documentation](src/docs/DOCUMENTATION.md)** - Struktur kode & arsitektur
+- 🔐 **[Security Guidelines](src/docs/SECURITY.md)** - Cara melaporkan masalah keamanan website
 - 🤝 **[Contributing Guidelines](src/docs/CONTRIBUTING.md)** - Cara berkontribusi
 - 📝 **[Changelog](src/docs/CHANGELOG.md)** - Version history & updates
 

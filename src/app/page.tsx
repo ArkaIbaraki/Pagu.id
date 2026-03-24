@@ -1,65 +1,135 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+
+export default function HomePage() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center p-4">
+      <div className="max-w-4xl w-full">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+            📊 Pagu.id
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-lg text-gray-600">
+            Pembuat Invoice & RAB Profesional dengan Format Indonesia
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          {/* Invoice Card */}
+          <Link href="/invoice">
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 p-8 cursor-pointer transform hover:scale-105 transition-transform">
+              <div className="text-5xl mb-4">📋</div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-3">
+                Invoice Maker
+              </h2>
+              <p className="text-gray-600 mb-6">
+                Buat invoice profesional dengan fitur lengkap:
+              </p>
+              <ul className="text-sm text-gray-700 space-y-2 mb-6">
+                <li>✅ Header dengan Nama Usaha atau Title</li>
+                <li>✅ Logo/Kop Perusahaan</li>
+                <li>✅ Mode dengan/tanpa Quantity</li>
+                <li>✅ Diskon (Nominal & Persen)</li>
+                <li>✅ PPN Otomatis</li>
+                <li>✅ Terbilang (Angka ke Huruf)</li>
+                <li>✅ Export PDF & Print</li>
+              </ul>
+              <button className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold transition-colors">
+                Buat Invoice →
+              </button>
+            </div>
+          </Link>
+
+          {/* RAB Card */}
+          <Link href="/rab">
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 p-8 cursor-pointer transform hover:scale-105 transition-transform">
+              <div className="text-5xl mb-4">📐</div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-3">
+                RAB Maker
+              </h2>
+              <p className="text-gray-600 mb-6">
+                Buat Rencana Anggaran Biaya (RAB) untuk proyek:
+              </p>
+              <ul className="text-sm text-gray-700 space-y-2 mb-6">
+                <li>✅ Input Nama & Nomor Proyek</li>
+                <li>✅ Volume & Satuan Fleksibel</li>
+                <li>✅ Harga per Satuan</li>
+                <li>✅ Perhitungan Otomatis</li>
+                <li>✅ Data Pembuat & Penyetuju</li>
+                <li>✅ Export PDF & Print</li>
+                <li>✅ Format Profesional</li>
+              </ul>
+              <button className="w-full px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 font-semibold transition-colors">
+                Buat RAB →
+              </button>
+            </div>
+          </Link>
         </div>
-      </main>
+
+        {/* Features */}
+        <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            🌟 Fitur Unggulan
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex items-start space-x-4">
+              <div className="text-2xl">⚡</div>
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-1">
+                  Gratis & Cepat
+                </h4>
+                <p className="text-sm text-gray-600">
+                  Tidak perlu login, semua proses di browser Anda
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <div className="text-2xl">🔒</div>
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-1">
+                  Aman & Privat
+                </h4>
+                <p className="text-sm text-gray-600">
+                  Data tidak tersimpan di server, hanya di perangkat Anda
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <div className="text-2xl">📱</div>
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-1">
+                  Mobile Friendly
+                </h4>
+                <p className="text-sm text-gray-600">
+                  Bekerja sempurna di desktop, tablet, dan smartphone
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="text-center text-gray-600 text-sm">
+          <p>
+            Dibuat dengan ❤️ untuk memudahkan bisnis Anda
+          </p>
+          <p className="mt-2">
+            © 2026 Pagu.id - Invoice & RAB Maker
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

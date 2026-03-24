@@ -1,0 +1,46 @@
+/* Print Styles */
+@media print {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  #invoice-preview {
+    box-shadow: none !important;
+    page-break-after: always;
+    max-height: 100%;
+    aspect-ratio: auto;
+  }
+
+  button,
+  input,
+  textarea,
+  select,
+  header,
+  main > div:not(#invoice-preview),
+  .hidden-on-print {
+    display: none !important;
+  }
+
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sticky {
+    position: relative;
+  }
+
+  .top-24 {
+    top: 0 !important;
+  }
+}
